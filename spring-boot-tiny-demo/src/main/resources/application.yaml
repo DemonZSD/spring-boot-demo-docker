@@ -3,8 +3,16 @@ server:
     8080
 debug:
   false
-
-
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/test
+    hikari:
+      max-lifetime: 10000
+      idle-timeout: 300000
+      connection-test-query: select 1
 # middle config
 middle:
   server: aaa
