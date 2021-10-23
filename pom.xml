@@ -22,6 +22,8 @@
         <module>spring-boot-swagger-demo</module>
         <module>thread-pool-demo</module>
         <module>scheduler-task-demo</module>
+        <module>spring-boot-mybatis-demo</module>
+        <module>spring-cloud-gateway-demo</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

@@ -1,6 +1,6 @@
 server:
   port:
-    8080
+    8088
 debug:
   false
 spring:
@@ -13,12 +13,3 @@ spring:
       max-lifetime: 10000
       idle-timeout: 300000
       connection-test-query: select 1
-# middle config
-middle:
-  server: aaa
-  # redis
-  etcd:
-    host: 127.0.0.1
-    port: 2379
-    password: 123456
-    timeout: 1000
