@@ -41,3 +41,33 @@ Filter在“pre”类型的过滤器实例中做参数校验、权限校验、�
 易于编写的 Predicate(断言) 和 Filter(过滤器)；
 请求限流功能；
 支持路径重写
+
+
+### 注意要点
+
+#### 网关路由配置
+- yml文件配置
+  ```
+    spring:
+      application:
+        name: cloud-gateway
+      cloud:
+        gateway:
+          routes:
+            - id: swagger_demo_get_route
+              uri: http://swager-service:8088
+              predicates:
+                - Path=/demo/**
+  ```
+- 代码注入RouteLocator的bean
+  ```
+    @Configuration
+    public class GatewayConfig {
+        @Bean
+        public RouteLocator routes(RouteLocatorBuilder builder){
+            RouteLocatorBuilder.Builder rb = builder.routes();
+            rb.route("route_id", r -> r.path("/route/**").uri("http://127.0.0.1:8088/route")).build();
+            return rb.build();
+        }
+    }
+```
