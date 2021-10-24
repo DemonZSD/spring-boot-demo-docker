@@ -2,6 +2,7 @@
 
 ## 基本概念
 网关在微服务架构处于的角色
+![alt text](https://github.com/DemonZSD/spring-boot-demo-docker/blob/master/spring-cloud-gateway-demo/src/main/resources/images/20211023102448.png)
 ![](./src/main/resources/images/20211023102448.png)
 
 
