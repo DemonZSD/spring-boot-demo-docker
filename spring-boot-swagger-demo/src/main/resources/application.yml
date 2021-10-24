@@ -1,2 +1,15 @@
 server:
   port: 8088
+eureka:
+  instance:
+    hostname: swager-service
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    service-url:
+      defaultZone: http://admin:123456@127.0.0.1:7001/eureka
+      register-with-eureka: true
+      fetch-register: true
+spring:
+  application:
+    name: swager-app

@@ -36,4 +36,9 @@ public class DemoController {
     private BaseResp deleteDemo(@PathVariable int id){
         return BaseResp.success("delete ok");
     }
+
+    @GetMapping("/route")
+    private BaseResp getRouteInfo(){
+        return BaseResp.success("route");
+    }
 }
