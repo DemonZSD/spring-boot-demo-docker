@@ -1,0 +1,23 @@
+#指定端口号
+server:
+  port: 7001
+
+#指定服务名称
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      password: 123456
+      name: admin
+
+#引用security依赖时需要配置，反之不需要
+#指定服务地址
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #指定是否要注册到注册中心（注册中心不需要开启）
+    fetch-registry: false #指定是否要从注册中心获取服务（注册中心不需要开启）~~~~
+  server:
+    enable-self-preservation: false #关闭保护模式
