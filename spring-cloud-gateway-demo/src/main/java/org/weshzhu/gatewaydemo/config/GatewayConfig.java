@@ -13,7 +13,7 @@ public class GatewayConfig {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder){
         RouteLocatorBuilder.Builder rb = builder.routes();
-        rb.route("route_id", r -> r.path("/route/**").uri("http://127.0.0.1:8088/route")).build();
+        rb.route("route_id", r -> r.path("/route11/**").uri("http://127.0.0.1:8088/route")).build();
         return rb.build();
     }
 }

@@ -1,15 +1,26 @@
 server:
   port: 18080
+logging:
+  #spring的自动装配日志只打error，否则debug输出的会打印很多自动装配的log信息到控制台
+  level.org.springframework.boot.autoconfigure: error
+  config: classpath:logback-spring.xml
 spring:
   application:
     name: cloud-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+          enabled: true
       routes:
         - id: swagger_demo_get_route
-          uri: http://swager-service:8088
+#          uri: http://127.0.0.1:8088
+          uri: lb://swager-app
           predicates:
-            - Path=/demo/**
+            - Path=/route/**
+          filters:
+            - AddRequestParameter=red, blue
 eureka:
   instance:
     hostname: cloud-gateway-service
