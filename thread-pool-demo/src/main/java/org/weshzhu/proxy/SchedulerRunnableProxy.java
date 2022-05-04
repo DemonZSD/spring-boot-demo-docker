@@ -2,12 +2,11 @@ package org.weshzhu.proxy;
 
 import org.demonzsd.common.utils.DateTimeUnits;
 import org.demonzsd.common.utils.DateTimeUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.weshzhu.entity.SchedulerProcessInfo;
 import org.weshzhu.service.DataProcessService;
 
+import javax.annotation.Resource;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -23,7 +22,7 @@ public class SchedulerRunnableProxy implements InvocationHandler{
 
     private final String dateTimePattern = "yyyy-MM-dd HH:mm:ss";
 
-    @Autowired
+    @Resource
     private DataProcessService dataProcessService;
 
     /**
@@ -35,10 +34,6 @@ public class SchedulerRunnableProxy implements InvocationHandler{
      */
     private final String taskName;
 
-    @Bean
-    public void setTaskName(String taskName){
-        this.taskName = taskName;
-    }
 
     public SchedulerRunnableProxy(Runnable target, String taskName) {
         this.target = target;
@@ -60,8 +55,7 @@ public class SchedulerRunnableProxy implements InvocationHandler{
             }
         }else {
             prcInfo.setResultDesc("do noting with task, because of getting lock failed.");
-        }
-        updateProcessInfo(prcInfo);
+        }        updateProcessInfo(prcInfo);
         return result;
     }
 

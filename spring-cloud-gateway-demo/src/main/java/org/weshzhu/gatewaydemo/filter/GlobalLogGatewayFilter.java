@@ -1,22 +1,21 @@
 package org.weshzhu.gatewaydemo.filter;
 
-import lombok.extern.slf4j.Slf4j;
+import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Objects;
+
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
+
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Objects;
-
-import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR;
 
 /**
  * @author weshzhu
@@ -24,11 +23,11 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 @Component
 @Slf4j
 public class GlobalLogGatewayFilter implements GlobalFilter, Ordered {
-    Logger logger = LoggerFactory.getLogger(getClass());
+    
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        logger.info("*******************test the global gateway filter");
+        log.info("*******************test the global gateway filter");
 //        String uname = exchange.getRequest().getQueryParams().getFirst("uname");
 
         String logServerIp = exchange.getRequest().getHeaders().getFirst("logServerIp");
@@ -51,7 +50,7 @@ public class GlobalLogGatewayFilter implements GlobalFilter, Ordered {
                 exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, newUrl);
             } catch (URISyntaxException e) {
                 exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND);
-                logger.error("获取日志请求头: logServerIp={} 错误：{}", logServerIp, e.getMessage());
+                log.error("获取日志请求头: logServerIp={} 错误：{}", logServerIp, e.getMessage());
                 return exchange.getResponse().setComplete();
             }
         }
