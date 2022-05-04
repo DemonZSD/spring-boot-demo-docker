@@ -2,7 +2,6 @@ package org.demonzsd.springbootdemo.manager.events;
 
 import org.demonzsd.springbootdemo.manager.events.entity.EventSource;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ApplicationListenerMethodAdapter;
 import org.springframework.stereotype.Service;
 
 /**
