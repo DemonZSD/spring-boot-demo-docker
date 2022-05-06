@@ -7,6 +7,6 @@ import org.weshzhu.service.DataProcessService;
 public class DataProcessServiceImpl implements DataProcessService {
     @Override
     public void test() {
-        System.out.println("this is test method");
+        System.out.println("this is DataProcessServiceImpl method");
     }
 }

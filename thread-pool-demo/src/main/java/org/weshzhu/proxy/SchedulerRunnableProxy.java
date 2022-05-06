@@ -1,28 +1,26 @@
 package org.weshzhu.proxy;
 
-import org.demonzsd.common.utils.DateTimeUnits;
-import org.demonzsd.common.utils.DateTimeUtils;
-import org.springframework.stereotype.Component;
-import org.weshzhu.entity.SchedulerProcessInfo;
-import org.weshzhu.service.DataProcessService;
-
-import javax.annotation.Resource;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.UUID;
+
+import org.demonzsd.common.utils.DateTimeUnits;
+import org.demonzsd.common.utils.DateTimeUtils;
+import org.weshzhu.common.utils.SpringUtil;
+import org.weshzhu.entity.SchedulerProcessInfo;
+import org.weshzhu.service.DataProcessService;
 
 /**
  * @author zsd
  * 代理类，用于代理 {@code Runnable} 接口类，代理类用于记录任务执行结果： {@link SchedulerProcessInfo}，并写入到
  * 记录中。
  */
-@Component
+
 public class SchedulerRunnableProxy implements InvocationHandler{
 
     private final String dateTimePattern = "yyyy-MM-dd HH:mm:ss";
 
-    @Resource
     private DataProcessService dataProcessService;
 
     /**
@@ -38,6 +36,7 @@ public class SchedulerRunnableProxy implements InvocationHandler{
     public SchedulerRunnableProxy(Runnable target, String taskName) {
         this.target = target;
         this.taskName = taskName;
+        this.dataProcessService = (DataProcessService)SpringUtil.getBean("dataProcessServiceImpl");
     }
 
     @Override
@@ -55,7 +54,8 @@ public class SchedulerRunnableProxy implements InvocationHandler{
             }
         }else {
             prcInfo.setResultDesc("do noting with task, because of getting lock failed.");
-        }        updateProcessInfo(prcInfo);
+        }
+        updateProcessInfo(prcInfo);
         return result;
     }
 

@@ -12,7 +12,7 @@ public class DataProcessTask implements Runnable{
     public void run() {
         try {
             Thread.sleep(5000);
-            throw new IllegalArgumentException("测试异常情况");
+            // throw new IllegalArgumentException("测试异常情况");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
