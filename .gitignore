@@ -6,5 +6,7 @@ target
 target/*
 *.iml
 */logs/**
+.vscode
+.vscode/*
 
 
