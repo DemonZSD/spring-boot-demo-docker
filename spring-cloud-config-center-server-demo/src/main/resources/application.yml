@@ -1,0 +1,24 @@
+server:
+  port: 18083
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/DemonZSD/springcloud-config.git
+          search-paths: springcloud-config
+          username: DemonZSD
+          password: Zsd565859
+        default-label: master
+eureka:
+  instance:
+    hostname: cloud-config-center
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    service-url:
+      defaultZone: http://admin:123456@127.0.0.1:7001/eureka
+      register-with-eureka: true
+      fetch-register: true
