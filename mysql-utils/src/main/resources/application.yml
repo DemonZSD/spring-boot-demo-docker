@@ -17,8 +17,11 @@ mysql-utils:
       # include the databases, such as 'db1,db2,...', the * indicates all databases.
       include: pboc
       charset:
-        - utf8
-        - utf8mb4
+        pre:
+          level: warn
+        rules:
+          - utf8
+          - utf8mb4
       engin:
         innodb
     table:
