@@ -4,7 +4,10 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
-public class DatabasePredicateProperties {
+/**
+ * @author zhushidong
+ */
+public class DatabasePredicateProperties extends PredicateProperties{
     List<String> includeDb;
     List<String> charset;
     String engine;

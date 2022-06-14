@@ -1,4 +1,4 @@
-package org.weshzhu.mysqlutils;
+package org.weshzhu.mysqlutils.predicate;
 
 
 import org.springframework.util.ClassUtils;
@@ -25,7 +25,7 @@ public class MysqlPredicateBuilder<T extends MysqlPredicateProperties> {
         if (type != null) {
             return type;
         }
-        throw new IllegalStateException("No supported DataSource type found");
+        throw new IllegalStateException("No supported PredicateProperties type found");
     }
 
     public static Class<? extends MysqlPredicateProperties> findType(ClassLoader classLoader) {
