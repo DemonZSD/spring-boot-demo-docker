@@ -17,8 +17,7 @@ mysql-utils:
       # include the databases, such as 'db1,db2,...', the * indicates all databases.
       include: pboc
       charset:
-        pre:
-          level: warn
+        level: warn
         rules:
           - utf8
           - utf8mb4
@@ -28,10 +27,13 @@ mysql-utils:
       # include the tables, such as 'table1,table2,...', the * indicates all tables.
       include: *
       charset:
-        - utf8
-        - utfmb4
+        rules:
+          - utf8
+          - utf8mb4
       rowformat:
-        default
+        level: warn
+        rules: default
+
     column:
       # include the columns, such as 'table1,table2,...', the * indicates all tables.
       include: *

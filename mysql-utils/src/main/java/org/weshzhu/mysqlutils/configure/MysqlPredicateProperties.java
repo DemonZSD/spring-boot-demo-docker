@@ -10,5 +10,15 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "mysql-utils.predicate")
 public class MysqlPredicateProperties {
 
+    private Database database;
+
+
+    class Database{
+        private String include;
+        private CharsetProperty charset;
+        private String engin;
+    }
+
+
 
 }
