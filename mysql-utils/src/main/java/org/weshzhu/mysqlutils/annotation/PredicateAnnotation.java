@@ -13,7 +13,7 @@ public @interface PredicateAnnotation {
     /**
      * 所给值，所给值结合表达式{@code expr()} 和{@code rules()} 进行校验
      */
-    String value();
+    String value() default "";
 
     /**
      * 规则集合

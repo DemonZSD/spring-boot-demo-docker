@@ -1,15 +1,15 @@
 package org.weshzhu.mysqlutils.common;
 
 public enum CheckLevel {
-    OFF(0),
-    WARN(100),
-    ERROR(200);
-    private final int intLevel;
-    private CheckLevel(int val) {
-        this.intLevel = val;
+    OFF("0"),
+    WARN("100"),
+    ERROR("200");
+    private final String checkLevel;
+    private CheckLevel(String checkLevel) {
+        this.checkLevel = checkLevel;
     }
 
-    public int intLevel() {
-        return this.intLevel;
+    public String checkLevel() {
+        return this.checkLevel;
     }
 }
