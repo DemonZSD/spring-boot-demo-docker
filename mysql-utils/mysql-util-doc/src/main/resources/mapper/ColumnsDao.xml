@@ -55,7 +55,32 @@
           and COLUMN_NAME=#{columnName}
     </select>
 
-
+    <select id="queryBySchema" resultMap="ColumnsMap">
+        select TABLE_CATALOG,
+        TABLE_SCHEMA,
+        TABLE_NAME,
+        COLUMN_NAME,
+        ORDINAL_POSITION,
+        COLUMN_DEFAULT,
+        IS_NULLABLE,
+        DATA_TYPE,
+        CHARACTER_MAXIMUM_LENGTH,
+        CHARACTER_OCTET_LENGTH,
+        NUMERIC_PRECISION,
+        NUMERIC_SCALE,
+        DATETIME_PRECISION,
+        CHARACTER_SET_NAME,
+        COLLATION_NAME,
+        COLUMN_TYPE,
+        COLUMN_KEY,
+        EXTRA,
+        PRIVILEGES,
+        COLUMN_COMMENT,
+        GENERATION_EXPRESSION
+        from COLUMNS
+        where TABLE_SCHEMA= #{schemaName}
+        order by TABLE_NAME desc, COLUMN_NAME desc
+    </select>
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
         select count(1)

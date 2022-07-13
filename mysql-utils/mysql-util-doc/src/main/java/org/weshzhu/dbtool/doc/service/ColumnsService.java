@@ -2,6 +2,8 @@ package org.weshzhu.dbtool.doc.service;
 
 import org.weshzhu.dbtool.common.entity.Columns;
 
+import java.util.List;
+
 /**
  * (Columns)表服务接口
  *
@@ -20,6 +22,14 @@ public interface ColumnsService {
      */
     Columns queryByColumnName(String schemaName, String tableName, String columnName);
 
+
+    /**
+     * 根据数据库名称，获取数据库表字段清单
+     * @param schemaName 数据库名称
+     * @return 数据库表字段清单
+     */
+    List<Columns> queryBySchema(String schemaName);
+
     /**
      * 新增数据
      *
@@ -35,6 +45,5 @@ public interface ColumnsService {
      * @return 实例对象
      */
     Columns update(Columns columns);
-
 
 }

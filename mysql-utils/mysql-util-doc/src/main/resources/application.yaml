@@ -13,3 +13,9 @@ spring:
 
   application:
     name: mysql-util-doc
+
+mybatis:
+  mapper-locations: classpath:mapper/*
+  type-aliases-package: org.weshzhu.dbtool.common.entity
+  configuration:
+    map-underscore-to-camel-case: true

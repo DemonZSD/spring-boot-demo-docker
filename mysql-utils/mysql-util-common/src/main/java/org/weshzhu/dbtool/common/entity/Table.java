@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class Tables implements Serializable {
+public class Table implements Serializable {
     private static final long serialVersionUID = -56693115482993084L;
     
     private String tableCatalog;

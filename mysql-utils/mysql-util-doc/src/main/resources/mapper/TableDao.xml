@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.weshzhu.dbtool.doc.dao.TablesDao">
+<mapper namespace="org.weshzhu.dbtool.doc.dao.TableDao">
 
-    <resultMap type="org.weshzhu.dbtool.common.entity.Tables" id="TablesMap">
+    <resultMap type="org.weshzhu.dbtool.common.entity.Table" id="TablesMap">
         <result property="tableCatalog" column="TABLE_CATALOG" jdbcType="VARCHAR"/>
         <result property="tableSchema" column="TABLE_SCHEMA" jdbcType="VARCHAR"/>
         <result property="tableName" column="TABLE_NAME" jdbcType="VARCHAR"/>

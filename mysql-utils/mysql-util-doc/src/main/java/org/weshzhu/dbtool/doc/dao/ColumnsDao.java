@@ -27,7 +27,12 @@ public interface ColumnsDao {
             @Param("tableName")String tableName,
             @Param("columnName")String columnName);
 
-
+    /**
+     * 根据 schema 获取数据库表中列的清单
+     * @param schemaName  schema 名称
+     * @return 数据库表中列的清单
+     */
+    List<Columns> queryBySchema(@Param("schemaName")String schemaName);
     /**
      * 统计总行数
      *

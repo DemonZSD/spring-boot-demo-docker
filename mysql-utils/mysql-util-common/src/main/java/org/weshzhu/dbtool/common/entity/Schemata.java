@@ -19,7 +19,10 @@ public class Schemata implements Serializable {
     private static final long serialVersionUID = 311791263199645460L;
     
     private String catalogName;
-    
+
+    /**
+     * 数据库名称
+     */
     private String schemaName;
     
     private String defaultCharacterSetName;

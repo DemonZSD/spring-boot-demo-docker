@@ -6,6 +6,7 @@ import org.weshzhu.dbtool.doc.service.ColumnsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Columns)表服务实现类
@@ -29,6 +30,12 @@ public class ColumnsServiceImpl implements ColumnsService {
     @Override
     public Columns queryByColumnName(String schemaName, String tableName, String columnName) {
         return this.columnsDao.queryByColumnName(schemaName, tableName, columnName);
+    }
+
+    @Override
+    public List<Columns> queryBySchema(String schemaName) {
+        List<Columns> columns = columnsDao.queryBySchema(schemaName);
+        return columns;
     }
 
 
