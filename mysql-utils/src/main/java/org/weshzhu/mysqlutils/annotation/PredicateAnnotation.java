@@ -10,6 +10,8 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 public @interface PredicateAnnotation {
 
+    String name();
+
     /**
      * 所给值，所给值结合表达式{@code expr()} 和{@code rules()} 进行校验
      */

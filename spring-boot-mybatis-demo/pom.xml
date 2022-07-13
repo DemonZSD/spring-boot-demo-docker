@@ -35,5 +35,29 @@
             <version>2.0.0</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>org.demonzsd.springbootdemo</groupId>
+                            <artifactId>spring-boot-mybatis-demo</artifactId>
+                            <type>jar</type>
+                            <overWrite>true</overWrite>
+                            <outputDirectory>target/deploy</outputDirectory>
+                            <destFileName>spring-boot-mybatis-demo.jar</destFileName>
+                        </artifactItem>
+                    </artifactItems>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

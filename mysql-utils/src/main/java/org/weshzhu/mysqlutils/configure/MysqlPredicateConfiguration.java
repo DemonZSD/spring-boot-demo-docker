@@ -1,12 +1,14 @@
 package org.weshzhu.mysqlutils.configure;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+<<<<<<< Updated upstream
 import org.weshzhu.mysqlutils.predicate.DBEnginePred;
 import org.weshzhu.mysqlutils.predicate.TablePredicate;
+=======
+>>>>>>> Stashed changes
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,13 +32,6 @@ public class MysqlPredicateConfiguration {
         predicateProperties.setCharset(supportCharsets);
         predicateProperties.setEngine(engine);
         return predicateProperties;
-    }
-
-    @Bean
-    @ConfigurationProperties(prefix = "mysql-utils.predicate.table")
-    public TablePredicate configTablePredicate(MysqlPredicateProperties properties) {
-        TablePredicate predicate = null;
-        return predicate;
     }
 
     @Configuration
